@@ -162,7 +162,7 @@ def main(_argv):
         allowed_classes = list(class_names.values())
         
         # custom allowed classes (uncomment line below to customize tracker for only people)
-        #allowed_classes = ['person']
+        allowed_classes = ['person']
 
         # loop through objects and use class index to get class name, allow only classes in allowed_classes list
         names = []
@@ -212,6 +212,8 @@ def main(_argv):
             objy = 924.57-((int(bbox[3]))*1.616)
             objid = track.track_id
             color = (0,255,0)
+
+            print(f"BBOX for object: {objid}. {bbox}")
 
             for track in tracker.tracks:
               if not track.is_confirmed() or track.time_since_update > 1:
